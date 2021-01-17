@@ -45,6 +45,7 @@ public class ClockServiceImpl implements ClockService {
         Long delayMillis = alarmClock.getDelayMillis();
         ResultDTO<Long> longResultDTO = ohMyClient.runJob(taskId, alarmClock.toString(), delayMillis);
         alarmClock.setInstanceId(longResultDTO.getData());
+        alarmClock.setId(id);
         alarmClockList.add(alarmClock);
         JSONObject data = new JSONObject();
         data.put("id", id);
