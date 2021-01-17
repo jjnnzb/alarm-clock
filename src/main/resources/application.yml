@@ -1,0 +1,8 @@
+powerjob:
+  worker:
+    app-name: alarm-clock
+    server-address: 127.0.0.1:7700
+  task:
+    id: 10
+  client:
+    password: 123456
