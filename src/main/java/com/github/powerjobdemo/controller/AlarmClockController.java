@@ -3,6 +3,7 @@ package com.github.powerjobdemo.controller;
 import com.github.powerjobdemo.entity.AlarmClock;
 import com.github.powerjobdemo.entity.Response;
 import com.github.powerjobdemo.service.ClockService;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -19,7 +20,7 @@ public class AlarmClockController {
     private ClockService clockService;
     
     @PostMapping(value = "/api/v1/alarm/clock/add")
-    public Response addAlarmClock(@RequestBody AlarmClock alarmClock) {
+    public Response addAlarmClock(@RequestBody @Validated AlarmClock alarmClock) {
         return Response.success(clockService.addAlarmClock(alarmClock));
     }
     

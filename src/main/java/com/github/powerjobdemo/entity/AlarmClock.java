@@ -3,9 +3,9 @@ package com.github.powerjobdemo.entity;
 import com.alibaba.fastjson.JSON;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.validator.constraints.Length;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -18,13 +18,13 @@ import java.time.LocalDateTime;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Builder
 public class AlarmClock {
     private Long id;
     
     @NotBlank(message = "username should not be blank.")
+    @Length(min = 2, message = "Length of username should be over 2.")
     private String username;
-    
+
     private String clockName;
     
     @NotNull(message = "Delay should not be null.")

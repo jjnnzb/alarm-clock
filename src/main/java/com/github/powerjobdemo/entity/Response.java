@@ -26,4 +26,13 @@ public class Response {
     public static Response error(JSONObject data) {
         return Response.builder().code(500).message("fail").info(data).build();
     }
+
+    public static Response error(String message, JSONObject data) {
+        return Response.builder().code(500).message(message).info(data).build();
+    }
+
+    public static Response error(int code, String message, JSONObject data) {
+        return Response.builder().code(code).message(message).info(data).build();
+    }
+
 }
